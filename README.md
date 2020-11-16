@@ -1,2 +1,2 @@
-# jupyter-alpine
-Docker image of jupyter notebook on alpine image.
+# jupyter
+Docker image of jupyter notebook.
