@@ -8,13 +8,10 @@ ARG NB_USER="dspaes"
 ARG NB_UID="1000"
 ARG NB_GID="100"
 
-ENV CPPFLAGS=-s \
-    SHELL=/bin/sh
+ENV SHELL=/bin/sh
 
 RUN apk add --no-cache libffi-dev py3-zmq linux-headers musl-dev gcc python3-dev python3 && ln -sf python3 /usr/bin/python
 RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools notebook 
-
-RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 
 CMD ["jupyter", "notebook", "--ip", "0.0.0.0", "--no-browser", "--allow-root"]
